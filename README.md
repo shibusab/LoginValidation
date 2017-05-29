@@ -10,6 +10,6 @@ Rules:
    
    This can be a chain of IF ELSE
    
-  <b> Refactored those chained IF's to Strategy Pattern </b>
+  <b> Refactored chained IF's to Strategy Pattern </b>
    
    NOTE: Reads User Info from an XML file / or write your own provider
