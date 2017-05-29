@@ -29,9 +29,53 @@ namespace LoginValidation.Tests
 			var retVal= new LoginProcess(userCommandRepository,userQueryRepository,passwordExpiryDays,accountLockoutThreshold,lockoutDurationMinutes)
 				.Login("shibu","password");
 			
-			Assert.IsEmpty(retVal,"User Authentication Failed");
+			Assert.IsEmpty(retVal,"User Authentication Expected to Pass, but Failed");
 		}
 		
+		[Test]
+		public void UserIsNotAuthenticated()
+		{
+			const string connectionString="./users.xml";
+			const int passwordExpiryDays=90;
+			const int accountLockoutThreshold=9;
+			const int lockoutDurationMinutes=10;
+			var userCommandRepository= new XmlUserAccountCommandRepository(connectionString);
+			var userQueryRepository=new XmlUserAccountQueryRepository(connectionString);
+			var retVal= new LoginProcess(userCommandRepository,userQueryRepository,passwordExpiryDays,accountLockoutThreshold,lockoutDurationMinutes)
+				.Login("shibu_not_auth","password");
+			
+			Assert.IsNotNullOrEmpty(retVal,"User Authentication Expected to Fail, but passed");
+		}
+		
+		[Test]
+		public void UserIsActive()
+		{
+			const string connectionString="./users.xml";
+			const int passwordExpiryDays=90;
+			const int accountLockoutThreshold=9;
+			const int lockoutDurationMinutes=10;
+			var userCommandRepository= new XmlUserAccountCommandRepository(connectionString);
+			var userQueryRepository=new XmlUserAccountQueryRepository(connectionString);
+			var retVal= new LoginProcess(userCommandRepository,userQueryRepository,passwordExpiryDays,accountLockoutThreshold,lockoutDurationMinutes)
+				.Login("shibu_not_active","password");
+			
+			Assert.IsNotNullOrEmpty(retVal,"User is Expected to be InActive, but came as active");
+		}
+		
+		[Test]
+		public void UserIsLocked()
+		{
+			const string connectionString="./users.xml";
+			const int passwordExpiryDays=90;
+			const int accountLockoutThreshold=9;
+			const int lockoutDurationMinutes=10;
+			var userCommandRepository= new XmlUserAccountCommandRepository(connectionString);
+			var userQueryRepository=new XmlUserAccountQueryRepository(connectionString);
+			var retVal= new LoginProcess(userCommandRepository,userQueryRepository,passwordExpiryDays,accountLockoutThreshold,lockoutDurationMinutes)
+				.Login("shibu_locked","password");
+			
+			Assert.IsNotNullOrEmpty(retVal,"User is Expected to be Locked, but is not locked");
+		}
 		/*
 		[Test]
 		public void CreateNewUser()

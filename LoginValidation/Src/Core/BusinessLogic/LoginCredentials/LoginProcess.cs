@@ -62,7 +62,7 @@ namespace LoginValidation.Core.BusinessLogic.LoginCredentials
 		public string Login(string userName,string password)
 		{
 			string retVal=string.Empty;
-			var userAccount= userQueryRepository.ValidateUser("shibu","password");
+			var userAccount= userQueryRepository.ValidateUser(userName,password);
 			                                                  
 			if(userAccount.IsAuthenticated)
 			{
@@ -73,6 +73,10 @@ namespace LoginValidation.Core.BusinessLogic.LoginCredentials
 				loginPolicies.AddLoginRule(new PasswordExpirySecurityPolicy(passwordExpiryDays));
 				
 				retVal= loginPolicies.ProcessRules(userAccount);
+			}
+			else
+			{
+				retVal="User Not Authenticated";
 			}
 			return retVal;
 		}
