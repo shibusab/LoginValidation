@@ -10,6 +10,7 @@
  
 using System;
 using LoginValidation.Core.DataAccess;
+using LoginValidation.Core.Domain;
 using LoginValidation.Infrastructure.DataAccess;
 using LoginValidation.Core.BusinessLogic.LoginCredentials.SecPolicies;
 
@@ -22,7 +23,7 @@ namespace LoginValidation.Core.BusinessLogic.LoginCredentials
 	{
 		private readonly IUserAccountCommandRepository userCommandRepository=null;
 		private readonly IUserAccountQueryRepository userQueryRepository=null;
-		private readonly string connectionString="TEST";
+		private readonly string connectionString="./users.xml";
 		private readonly int passwordExpiryDays=90;
 		private readonly int accountLockoutThreshold=9;
 		private readonly int lockoutDurationMinutes=10;
@@ -75,5 +76,20 @@ namespace LoginValidation.Core.BusinessLogic.LoginCredentials
 			}
 			return retVal;
 		}
+		
+		public void AddUser()
+		{
+			var userAccount = new UserAccount{
+			 UserName="shibu",
+			 IsActive=true,
+			 IsAuthenticated=true,
+			 IsLocked=false
+			};
+			
+			
+			userCommandRepository.SaveUser(userAccount);
+			
+		}
 	}
+	
 }

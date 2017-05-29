@@ -8,8 +8,11 @@
  * file 'LICENSE.txt', which is part of this source code package.
  */
 using System;
+using System.Collections.Generic;
 using LoginValidation.Core.DataAccess;
 using LoginValidation.Core.Domain;
+using LoginValidation.Infrastructure.Utils;
+using System.Linq;
 
 namespace LoginValidation.Infrastructure.DataAccess
 {
@@ -18,15 +21,18 @@ namespace LoginValidation.Infrastructure.DataAccess
 	/// </summary>
 	public class XmlUserAccountQueryRepository:IUserAccountQueryRepository
 	{
-		private readonly string connectionString;
-		public XmlUserAccountQueryRepository(string connectionString)
+		private readonly string xmlFileName;
+		public XmlUserAccountQueryRepository(string xmlFileName)
 		{
-			this.connectionString=connectionString;
+			this.xmlFileName=xmlFileName;
 		}
 		
 		public UserAccount ValidateUser(string userName,string password)
 		{
-			throw new NotImplementedException();
+			var users= new List<UserAccount>();
+			users=CustomSerializer<UserAccount>.Read(xmlFileName);
+			var user= users.FirstOrDefault(p=>p.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase));
+			return user;
 		}
 	}
 }

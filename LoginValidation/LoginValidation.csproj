@@ -67,6 +67,7 @@
     <Compile Include="Src\Core\BusinessLogic\LoginCredentials\ILoginSecurityPolicy.cs" />
     <Compile Include="Src\Infrastructure\DataAccess\XmlUserAccountCommandRepository.cs" />
     <Compile Include="Src\Infrastructure\DataAccess\XmlUserAccountQueryRepository.cs" />
+    <Compile Include="Src\Infrastructure\Utils\CustomSerializer.cs" />
     <Compile Include="Tests\UserAccountTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,7 @@
     <Folder Include="Src\Infrastructure" />
     <Folder Include="Src\Core" />
     <Folder Include="Src\Infrastructure\DataAccess" />
+    <Folder Include="Src\Infrastructure\Utils" />
     <Folder Include="Tests" />
     <Folder Include="Src" />
     <Folder Include="Src\Core\BusinessLogic\LoginCredentials" />

@@ -9,6 +9,7 @@
  */
  
 using System;
+using LoginValidation.Core.Domain;
 
 namespace LoginValidation.Core.DataAccess
 {
@@ -19,5 +20,6 @@ namespace LoginValidation.Core.DataAccess
 	{
 		bool LockUser(string userName);
 		bool UnlockUser(string userName);
+		bool SaveUser(UserAccount userAccount);
 	}
 }

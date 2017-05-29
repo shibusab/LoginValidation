@@ -20,7 +20,7 @@ namespace LoginValidation.Tests
 		[Test]
 		public void UserIsAuthenticated()
 		{
-			const string connectionString="TEST";
+			const string connectionString="./users.xml";
 			const int passwordExpiryDays=90;
 			const int accountLockoutThreshold=9;
 			const int lockoutDurationMinutes=10;
@@ -31,5 +31,15 @@ namespace LoginValidation.Tests
 			
 			Assert.IsEmpty(retVal,"User Authentication Failed");
 		}
+		
+		/*
+		[Test]
+		public void CreateNewUser()
+		{
+			const string connectionString="./users.xml";
+			var userCommandRepository= new XmlUserAccountCommandRepository(connectionString);
+			new LoginProcess().AddUser();
+		}
+		*/
 	}
 }
