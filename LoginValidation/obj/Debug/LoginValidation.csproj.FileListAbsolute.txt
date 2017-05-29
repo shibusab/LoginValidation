@@ -1,7 +1,0 @@
-C:\Users\shibu\Documents\SharpDevelop Projects\LoginValidation\LoginValidation\bin\Debug\LoginValidation.exe.config
-C:\Users\shibu\Documents\SharpDevelop Projects\LoginValidation\LoginValidation\bin\Debug\LoginValidation.exe
-C:\Users\shibu\Documents\SharpDevelop Projects\LoginValidation\LoginValidation\bin\Debug\LoginValidation.pdb
-C:\Users\shibu\Documents\SharpDevelop Projects\LoginValidation\LoginValidation\obj\Debug\LoginValidation.exe
-C:\Users\shibu\Documents\SharpDevelop Projects\LoginValidation\LoginValidation\obj\Debug\LoginValidation.pdb
-C:\Users\shibu\Documents\SharpDevelop Projects\LoginValidation\LoginValidation\bin\Debug\NUnit.Framework.dll
-C:\Users\shibu\Documents\SharpDevelop Projects\LoginValidation\LoginValidation\obj\Debug\LoginValidation.csprojResolveAssemblyReference.cache
